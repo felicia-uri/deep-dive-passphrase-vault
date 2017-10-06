@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.passphrase;
+package edu.cnm.deepdive.passphrase.ui;
 
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -7,6 +7,8 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+//TODO - get rid of all CLI stuff.
+//TODO - write main method as a test rig for and Options class.
 public class CommandLine {
 
   public static void main(String[] args) {

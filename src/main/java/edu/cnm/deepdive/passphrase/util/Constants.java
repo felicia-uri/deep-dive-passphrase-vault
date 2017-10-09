@@ -1,31 +1,43 @@
 package edu.cnm.deepdive.passphrase.util;
 
-//TODO Define widely-accessed constants (public static final fields
+// e.g. keys for accessing resource bundle properties,resources
 
 public class Constants {
 
-  private static final String RESOURCE_BUNDLE_NAME  = "usage-strings";
-  private static final String EXCLUDES_REPEAT = "excludesRepeat";
-  private static final String EXCLUDES_UPPERCASE = "excludesUppercase";
-  private static final String EXCLUDES_LOWERCASE = "excludesLowercase";
-  private static final String EXCLUDES_DIGITS = "excludesDigits";
-  private static final String EXCLUDES_SYMBOLS = "excludesSymbols";
-  private static final String SPECIFY_LENGTH = "specifyLength";
-  private static final String SPECIFY_DELIMITER = "specifyDelimiter";
-  private static final String EXCLUDE_AMBIGUOUS = "excludeAmbiguous";
-  private static final String ALLOW_CHAOS =  "allowChaos";
-  private static final String HELP_MSG = "helpMsg";
-  private static final String MODE_SWITCH = "modeSwitch";
+  //Resource bundle name
+  public static final String USAGE_BUNDLE = "usage-strings";
+  public static final String WORDS_BUNDLE ="diceware-words";
 
-  private static final String MODE_SELECTOR = "modeSelectError";
-  private static final String LENGTH_ERROR ="lengthError";
-  private static final String LENGTH_WARNING = "lengthWarning";
-  private static final String MODE_WARNING = "modeWarning";
+  public static final String EXCLUDES_REPEAT = "excludesRepeat";
+  public static final String EXCLUDES_UPPERCASE = "excludesUppercase";
+  public static final String EXCLUDES_LOWERCASE = "excludesLowercase";
+  public static final String EXCLUDES_DIGITS = "excludesDigits";
+  public static final String EXCLUDES_SYMBOLS = "excludesSymbols";
+  public static final String EXCLUDES_AMBIGUOUS = "excludesAmbiguous";
+  public static final String ALLOW_CHAOS = "allowChaos";
 
-  private static final String EXCLUDES_SYMBOLS_ARGS = "excludesSymbolsArgs";
-  private static final String SPECIFY_LENGTH_ARGS = "specifyLengthArgs";
-  private static final String SPECIFY_DELIMITER_ARGS = "specifyDelimiterArgs";
+ // Definitions of the Specifications string variables
+  public static final String SPECIFY_LENGTH = "specifyLength";
+  public static final String SPECIFY_DELIMITER = "specifyDelimiter";
 
+ // Definition of the mode switch string
+  public static final String MODE_SWITCH= "modeSwitch";
 
+ // Definition of the Help Message string
+  public static final String HELP_MSG = "helpMsg";
 
+ // Definitions of the Error Messages
+  public static final String MODE_SELECT_ERROR = "modeSelectError";
+  public static final String LENGTH_ERROR = "lengthError";
+
+ // Definitions of the Warning Messages
+  public static final String LENGTH_WARNING = "lengthWarning";
+  public static final String MODE_WARNING = "modeWarning";
+
+ // Definitions of the arguments
+  public static final String EXCLUDES_SYMBOLS_ARGS = "excludesSymbolsArgs";
+  public static final String SPECIFY_LENGTH_ARGS = "specifyLengthArgs";
+  public static final String SPECIFY_DELEMITER_ARGS = "specifyDelimiterArgs";
+
+  public static final String NO_REPEAT_OPTION = "no-repeat";
 }

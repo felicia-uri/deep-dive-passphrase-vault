@@ -1,7 +1,11 @@
 package edu.cnm.deepdive.passphrase.ui;
 
+import edu.cnm.deepdive.passphrase.RandomArtifactGenerator;
+import edu.cnm.deepdive.passphrase.RandomPassphraseGenerator;
+import edu.cnm.deepdive.passphrase.RandomPasswordGenerator;
 import edu.cnm.deepdive.passphrase.util.Constants;
 import edu.cnm.deepdive.passphrase.Options;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +23,9 @@ public class CommandLine {
         System.out.printf("%s = %s%n", entry.getKey(), entry.getValue());
       }
       boolean passwordMode = map.containsKey(Constants.PASSWORD_MODE_OPTION);
+      RandomArtifactGenerator generator;
       if (passwordMode) {
+        generator = new RandomPasswordGenerator();
         for (String key : map.keySet()) {
           switch (key) {
             // TODO - invoke setters on password generator
@@ -47,35 +53,30 @@ public class CommandLine {
             case Constants.SPECIFY_LENGTH:
               System.out.println("User specified length.");
               break;
-            case Constants.SPECIFY_DELIMITER:
-              System.out.println("User specified delimiter.");
-              break;
-            case Constants.HELP_OPTION:
-              System.out.println("User specified help.");
-              break;
           }
 
         }
       } else {
         //passphrase mode
+        generator = new RandomPassphraseGenerator();
         for (String key : map.keySet()) {
           switch (key) {
             // TODO - invoke setters on password generator
             case Constants.NO_REPEAT_OPTION:
-              System.out.println("User specified no repeat words.");
+              generator.setRepeatedAllowed(false);
               break;
-            case Constants.EXCLUDES_ORDER:
-              System.out.println("User specified no order words.");
-              break;
-            case Constants.SPECIFY_LENGTH:
-              System.out.println("User specified length.");
+            case Constants.LENGTH_OPTION:
+              generator.setLength(((Number) map.get(Constants.LENGTH_OPTION)).intValue());
               break;
             case Constants.SPECIFY_DELIMITER:
-              System.out.println("User specified delimiter.");
+              ((RandomPassphraseGenerator) generator)
+                  .setDelimiter(((String) map.get(Constants.DELIMITER_OPTION)).charAt(0));
               break;
           }
         }
       }
+      generator.setRng(new SecureRandom());
+      System.out.println(generator.generate());
     } catch (Exception ex) {
       System.exit(-1);
     }
